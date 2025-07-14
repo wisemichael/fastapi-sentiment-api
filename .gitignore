@@ -1,0 +1,20 @@
+# Ignore virtual environments
+venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Environment files
+.env
+
+# MacOS or Windows clutter
+.DS_Store
+Thumbs.db
+
+# Ignore large datasets (optional if dataset is big)
+IMDB_Dataset/
