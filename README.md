@@ -34,9 +34,37 @@ pip install -r requirements.txt
 Train the model:
 python train_model.py
 
+
+
+
+API Endpoints
+GET /
+
+Returns a simple health check message to confirm the server is running.
+
+POST /predict
+
+Accepts a JSON object with a single key "review" and returns a prediction of either "positive" or "negative".
+
+Example input:
+{ "review": "I absolutely loved this movie!" }
+
+Example output:
+{ "prediction": "positive" }
 Start the FastAPI server:
 uvicorn main:app --reload
 
 Then open your browser and go to:
 http://127.0.0.1:8000/docs
 This is the interactive FastAPI documentation page where you can test the endpoints.
+
+
+
+Docker Instructions
+Build the Docker image:
+docker build -t sentiment-api .
+
+Run the Docker container:
+docker run -p 8000:8000 sentiment-api
+
+Then visit http://127.0.0.1:8000/docs to interact with the API.
