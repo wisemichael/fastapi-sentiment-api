@@ -4,18 +4,18 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 import pickle
 
-# 1. Load your dataset (IMDB reviews)
+# 1. Loads dataset (IMDB)
 df = pd.read_csv("IMDB_Dataset/IMDB Dataset.csv")
 
-# 2. Preprocess (optional: truncate for speed/testing)
+# 2. Preprocess
 df = df.sample(frac=1, random_state=42).reset_index(drop=True)  # Shuffle
-df = df.head(10000)  # You can increase if needed
+df = df.head(10000)  
 
-# 3. Train/test split (optional for validation, not required if just saving model)
+# 3. Train/test split
 X = df["review"]
 y = df["sentiment"]
 
-# 4. Convert labels to binary if needed
+# 4. Convert labels to binary
 y = y.map({"positive": 1, "negative": 0})
 
 # 5. Create pipeline
