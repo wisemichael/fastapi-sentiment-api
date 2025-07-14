@@ -1,20 +1,42 @@
-# FastAPI Sentiment API
+This project is a simple sentiment analysis API built using FastAPI. It utilizes a machine learning pipeline with scikit-learn to classify IMDB movie reviews as either positive or negative.
 
-This FastAPI application exposes endpoints for sentiment analysis and returning random movie reviews.
+Model
+Vectorizer: CountVectorizer
 
-## Endpoints
+Classifier: Multinomial Naive Bayes
 
-- `GET /`  
-  Returns a welcome message to confirm the API is running.
+Dataset: IMDB movie reviews (10,000 samples)
 
-- `GET /predict`  
-  Loads the IMDB dataset and returns sentiment predictions using a simple model.
+Output: A trained .pkl file (sentiment_model.pkl)
 
-- `GET /example`  
-  Returns a random review from `example_data.json`.
+Project Structure
+.
+├── app/
+│ ├── init.py
+│ ├── api.py
+│ ├── data_loader.py
+│ └── model.py
+├── IMDB_Dataset/
+│ └── IMDB_Dataset.csv
+├── dockerfile
+├── example_data.json
+├── main.py
+├── makefile
+├── README.md
+├── requirements.txt
+├── sentiment_model.pkl
+└── train_model.py
 
-## How to Run the App Locally
+Running the API Locally
+Install dependencies:
+pip install -r requirements.txt
 
-1. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
+Train the model:
+python train_model.py
+
+Start the FastAPI server:
+uvicorn main:app --reload
+
+Then open your browser and go to:
+http://127.0.0.1:8000/docs
+This is the interactive FastAPI documentation page where you can test the endpoints.
